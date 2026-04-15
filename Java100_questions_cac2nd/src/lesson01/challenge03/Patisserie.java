@@ -39,4 +39,5 @@ public class Patisserie {
 		System.out.println("ピスターシュ  \\320…残り" + pisutasyu + "個");
 
 	}
+
 }

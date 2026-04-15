@@ -72,4 +72,5 @@ public class Patisserie {
 		System.out.println("承りました。");
 
 	}
+
 }

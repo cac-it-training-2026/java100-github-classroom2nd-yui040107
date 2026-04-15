@@ -31,4 +31,5 @@ public class Patisserie {
 		System.out.println("ピスターシュ  \\320");
 
 	}
+
 }
