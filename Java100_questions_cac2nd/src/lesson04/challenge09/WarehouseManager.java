@@ -57,7 +57,10 @@ public class WarehouseManager {
 
 	public static void main(String[] args) {
 
+		// 荷物Aの状態
 		int[] MQArrayA = { 3, 0, 5, 0, 3 };
+
+		// 荷物Bの状態
 		int[] MQArrayB = { 0, 1, 0, 4, 0 };
 
 		System.out.println("E主任：");
@@ -66,16 +69,26 @@ public class WarehouseManager {
 		System.out.println("Yさん：");
 		System.out.println("はい、まずは現状から確認いたします。\n");
 
+		// A配列表示
 		System.out.print("A...");
+
 		for (int i = 0; i < MQArrayA.length; i++) {
+
 			System.out.print(MQArrayA[i]);
+
+			// 最後以外はカンマ表示
 			if (i != (MQArrayA.length - 1)) {
 				System.out.print(",");
 			}
 		}
+
+		// B配列表示
 		System.out.print("\n\nB...");
+
 		for (int i = 0; i < MQArrayB.length; i++) {
+
 			System.out.print(MQArrayB[i]);
+
 			if (i != (MQArrayB.length - 1)) {
 				System.out.print(",");
 			}
@@ -83,23 +96,51 @@ public class WarehouseManager {
 
 		System.out.println("\n\nでした。直してきます...\n");
 
+		// A配列の0をB配列の数字で埋める
+		for (int i = 0; i < MQArrayA.length; i++) {
 
-		//for文のネストを利用してMQArrayAの要素0の位置にMQArrayBの値を入れる処理を記述する。
+			// A側に0があれば
+			if (MQArrayA[i] == 0) {
 
+				// B側から0以外の数字を探す
+				for (int j = 0; j < MQArrayB.length; j++) {
+
+					if (MQArrayB[j] != 0) {
+
+						// 値を移動
+						MQArrayA[i] = MQArrayB[j];
+
+						// 移動した場所は0にする
+						MQArrayB[j] = 0;
+
+						break;
+					}
+				}
+			}
+		}
 
 		System.out.println("Yさん：");
 		System.out.println("直してきました。\n");
 
+		// 修正後A表示
 		System.out.print("A...");
+
 		for (int i = 0; i < MQArrayA.length; i++) {
+
 			System.out.print(MQArrayA[i]);
+
 			if (i != (MQArrayA.length - 1)) {
 				System.out.print(",");
 			}
 		}
+
+		// 修正後B表示
 		System.out.print("\n\nB...");
+
 		for (int i = 0; i < MQArrayB.length; i++) {
+
 			System.out.print(MQArrayB[i]);
+
 			if (i != (MQArrayB.length - 1)) {
 				System.out.print(",");
 			}
