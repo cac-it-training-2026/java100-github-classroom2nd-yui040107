@@ -61,12 +61,42 @@ public class WarehouseManager {
 
 	public static void main(String[] args) {
 
+		// C倉庫の荷物
+		int[] MQArrayC = new int[5];
 
-		//ここに必要な配列の宣言を記述する。
+		// D倉庫の荷物
+		int[] MQArrayD = new int[5];
 
+		// E倉庫の荷物
+		int[] MQArrayE = new int[5];
 
-		//ここに配列に値を代入する処理を記述する。(要素はランダム)
+		// 2次元配列で3つの配列をまとめる
+		int[][] MQArrayAll = new int[3][5];
 
+		MQArrayAll[0] = MQArrayC;
+		MQArrayAll[1] = MQArrayD;
+		MQArrayAll[2] = MQArrayE;
+
+		// 各配列へランダム値を格納
+		for (int i = 0; i < MQArrayAll.length; i++) {
+
+			for (int j = 0; j < MQArrayAll[0].length; j++) {
+
+				// 0を入れるか判定用乱数
+				int rand = (int) (Math.random() * 10) % 4;
+
+				// randが0なら0を格納
+				if (rand == 0) {
+
+					MQArrayAll[i][j] = 0;
+
+				} else {
+
+					// 1～10のランダム数を格納
+					MQArrayAll[i][j] = (int) (Math.random() * 10) % 10 + 1;
+				}
+			}
+		}
 
 		System.out.println("E主任：");
 		System.out.println("MQ運送から預かった荷物の確認をお願いします。\n");
@@ -74,23 +104,42 @@ public class WarehouseManager {
 		System.out.println("Yさん：");
 		System.out.println("はい、\n");
 
+		// C配列表示
 		System.out.print("C...");
 
+		for (int i = 0; i < MQArrayC.length; i++) {
 
-		//ここに配列Cの要素をすべて出力する処理を記述する。
+			System.out.print(MQArrayC[i]);
 
+			// 最後以外はカンマ表示
+			if (i != (MQArrayC.length - 1)) {
+				System.out.print(",");
+			}
+		}
 
+		// D配列表示
 		System.out.print("\n\nD...");
 
+		for (int i = 0; i < MQArrayD.length; i++) {
 
-		//ここに配列Dの要素をすべて出力する処理を記述する。
+			System.out.print(MQArrayD[i]);
 
+			if (i != (MQArrayD.length - 1)) {
+				System.out.print(",");
+			}
+		}
 
+		// E配列表示
 		System.out.print("\n\nE...");
 
+		for (int i = 0; i < MQArrayE.length; i++) {
 
-		//ここに配列Eの要素をすべて出力する処理を記述する。
+			System.out.print(MQArrayE[i]);
 
+			if (i != (MQArrayE.length - 1)) {
+				System.out.print(",");
+			}
+		}
 
 		System.out.println("\n\nです。\n");
 
